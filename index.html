@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-layout">
+            <!-- Left Side - Quick Overview -->
+            <div class="overview-container">
+                <div class="overview-header">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>Academic Management System</h1>
+                    <p class="subtitle">Advanced Educational Technology Solution</p>
+                </div>
+                
+                <div class="quick-overview">
+                    <h2><i class="fas fa-info-circle"></i> System Overview</h2>
+                    
+                    <div class="overview-description">
+                        <p>Comprehensive web-based platform designed for modern educational institutions to streamline academic operations, enhance productivity, and improve educational outcomes.</p>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <i class="fas fa-code-branch"></i>
+                            <h3>Version Information</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-row">
+                                <span class="info-label">Version:</span>
+                                <span class="info-value">1.0.0 (Stable Release)</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Release Date:</span>
+                                <span class="info-value">August 30, 2025</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Build:</span>
+                                <span class="info-value">2025.08.30.001</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">License:</span>
+                                <span class="info-value">Educational Use</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Technical Specifications</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="tech-grid">
+                                <div class="tech-badge">
+                                    <i class="fab fa-html5"></i>
+                                    <span>HTML5 & CSS3</span>
+                                </div>
+                                <div class="tech-badge">
+                                    <i class="fab fa-js-square"></i>
+                                    <span>JavaScript ES6+</span>
+                                </div>
+                                <div class="tech-badge">
+                                    <i class="fas fa-database"></i>
+                                    <span>LocalStorage API</span>
+                                </div>
+                                <div class="tech-badge">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Responsive Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <i class="fas fa-star"></i>
+                            <h3>Key Features</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <span>Student Information Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Daily Attendance Tracking</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Assignment & Grade Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Comprehensive Analytics</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Authentication</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-save"></i>
+                                <span>Auto-Save Functionality</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>Developer Information</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-row">
+                                <span class="info-label">Developed by:</span>
+                                <span class="info-value developer-name">Sanjaya Rathnayaka</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Profession:</span>
+                                <span class="info-value">ICT Teacher & Professional Web Developer</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Contact:</span>
+                                <span class="info-value">rathnayakadp123@gmail.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Specialization:</span>
+                                <span class="info-value">Educational Technology Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Login/Signup -->
+            <div class="login-container">
+                <div class="login-header">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <h2>Secure Teacher Portal</h2>
+                    <p>Access your academic management dashboard</p>
+                </div>
+                
+                <div class="login-tabs">
+                    <button class="login-tab-btn active" onclick="showLoginTab('login')" data-tab="login">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <button class="login-tab-btn" onclick="showLoginTab('signup')" data-tab="signup">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="loginForm" class="login-form active">
+                    <div class="form-group">
+                        <label for="loginUsername">
+                            <i class="fas fa-user"></i> Username
+                        </label>
+                        <input type="text" id="loginUsername" name="loginUsername" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-sign-in-alt"></i> Login to System
+                    </button>
+                </form>
+                
+                <!-- Sign Up Form -->
+                <form id="signupForm" class="login-form">
+                    <div class="form-group">
+                        <label for="signupUsername">
+                            <i class="fas fa-user"></i> Username
+                        </label>
+                        <input type="text" id="signupUsername" name="signupUsername" placeholder="Choose a username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="signupPassword" name="signupPassword" placeholder="Create a secure password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupSubject">
+                            <i class="fas fa-book"></i> Subject
+                        </label>
+                        <input type="text" id="signupSubject" name="signupSubject" placeholder="e.g., Mathematics, English, Science" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="container" style="display: none;">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-graduation-cap"></i> Academic Management System</h1>
+                <div class="user-info">
+                    <span id="teacherInfo">Teacher: <strong id="teacherName"></strong> | Subject: <strong id="teacherSubject"></strong></span>
+                    <span id="saveIndicator" class="save-indicator">All changes saved</span>
+                    <span class="auto-save-text">
+                        <i class="fas fa-sync-alt"></i> Auto-saving enabled
+                    </span>
+                    <button class="btn btn-secondary btn-small" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-tab="students">Students</button>
+                <button class="tab-btn" data-tab="attendance">Attendance</button>
+                <button class="tab-btn" data-tab="academic">Academic Records</button>
+                <button class="tab-btn" data-tab="reports">Reports</button>
+                <button class="tab-btn" data-tab="help">Help</button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- Students Tab -->
+            <div id="students" class="tab-content active">
+                <div class="section-header">
+                    <h2>Student Management</h2>
+                    <div class="students-controls">
+                        <select id="studentsClassFilter" class="select-input">
+                            <option value="">All Classes</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="openAddStudentModal()">
+                            <i class="fas fa-plus"></i> Add Student
+                        </button>
+                    </div>
+                </div>
+                <div class="students-grid" id="studentsGrid">
+                    <!-- Students will be populated here -->
+                </div>
+            </div>
+
+            <!-- Attendance Tab -->
+            <div id="attendance" class="tab-content">
+                <div class="section-header">
+                    <h2>Attendance Management</h2>
+                    <div class="attendance-controls">
+                        <div class="form-group inline">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" class="input-medium" value="2025-08-28" onchange="updateAttendanceCalculations()">
+                        </div>
+                        <div class="form-group inline">
+                            <label for="totalSchoolDays">Total School Days</label>
+                            <input type="number" id="totalSchoolDays" class="input-medium" min="1" max="365" value="200" onchange="updateAttendanceCalculations()">
+                        </div>
+                        <div class="date-controls">
+                            <input type="date" id="attendanceDate" class="date-input">
+                            <button class="btn btn-primary" onclick="markAttendance()">
+                                <i class="fas fa-check"></i> Mark Attendance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="attendance-list" id="attendanceList">
+                    <!-- Attendance list will be populated here -->
+                </div>
+            </div>
+
+            <!-- Academic Records Tab -->
+            <div id="academic" class="tab-content">
+                <div class="section-header">
+                    <h2>Academic Records</h2>
+                    <div class="academic-actions">
+                        <button class="btn btn-success btn-small" onclick="saveAllAcademicChanges()">
+                            <i class="fas fa-save"></i> Save All Changes
+                        </button>
+                    </div>
+                </div>
+                <div class="academic-container">
+                    <div class="academic-filters">
+                        <select id="academicClass" class="select-input">
+                            <option value="">All Classes</option>
+                        </select>
+                        <select id="academicSubject" class="select-input">
+                            <option value="">All Subjects</option>
+                        </select>
+                        <select id="academicStudent" class="select-input">
+                            <option value="">All Students</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Assignment Marks Table -->
+                    <div class="academic-section" id="assignmentSection">
+                        <h3><i class="fas fa-clipboard-list"></i> Assignment Marks (Out of 20 each, Total: 100)</h3>
+                        <div class="table-container">
+                            <table class="academic-table editable-table" id="assignmentTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Student Name</th>
+                                        <th class="editable-header">Asg.1<br><small>Max: 20</small></th>
+                                        <th class="editable-header">Asg.2<br><small>Max: 20</small></th>
+                                        <th class="editable-header">Asg.3<br><small>Max: 20</small></th>
+                                        <th class="editable-header">Asg.4<br><small>Max: 20</small></th>
+                                        <th class="editable-header">Asg.5<br><small>Max: 20</small></th>
+                                        <th>Total</th>
+                                        <th>Average</th>
+                                        <th>Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="assignmentTableBody">
+                                    <!-- Assignment data will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Term Test Marks Table -->
+                    <div class="academic-section" id="termTestSection">
+                        <h3><i class="fas fa-graduation-cap"></i> Term Test Marks (Out of 100 each)</h3>
+                        <div class="table-container">
+                            <table class="academic-table editable-table" id="termTestTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Student Name</th>
+                                        <th class="editable-header">First Term<br><small>Max: 100</small></th>
+                                        <th>Grade</th>
+                                        <th class="editable-header">Second Term<br><small>Max: 100</small></th>
+                                        <th>Grade</th>
+                                        <th class="editable-header">Third Term<br><small>Max: 100</small></th>
+                                        <th>Grade</th>
+                                        <th>Average</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="termTestTableBody">
+                                    <!-- Term test data will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports" class="tab-content">
+                <div class="section-header">
+                    <h2>Reports & Analytics</h2>
+                    <div class="report-actions">
+                        <button class="btn btn-primary btn-small" onclick="printReport()">
+                            <i class="fas fa-print"></i> Print Report
+                        </button>
+                    </div>
+                </div>
+                <div class="report-filters">
+                    <select id="reportType" class="select-input">
+                        <option value="attendance">Attendance Report</option>
+                        <option value="assignment">Assignment Marks Report</option>
+                        <option value="termtest">Term Test Marks Report</option>
+                        <option value="overall">Overall Performance Report</option>
+                    </select>
+                    <select id="reportClass" class="select-input">
+                        <option value="">All Classes</option>
+                    </select>
+                    <select id="reportTerm" class="select-input">
+                        <option value="">All Terms</option>
+                        <option value="first">First Term</option>
+                        <option value="second">Second Term</option>
+                        <option value="third">Third Term</option>
+                    </select>
+                    <select id="reportSubject" class="select-input">
+                        <option value="">All Subjects</option>
+                    </select>
+                </div>
+                <div class="reports-grid">
+                    <div class="report-card full-width">
+                        <h3 id="reportTitle">Attendance Report</h3>
+                        <div id="dynamicReport" class="report-content">
+                            <!-- Dynamic report content will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Tab -->
+            <div id="help" class="tab-content">
+                <div class="section-header">
+                    <h2>Help & Support</h2>
+                </div>
+                <div class="help-container">
+                    <div class="help-section">
+                        <h3><i class="fas fa-route"></i> Quick Tour</h3>
+                        <div class="tour-steps">
+                            <div class="tour-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Student Management</h4>
+                                    <p>Add, edit, and manage student information. Use the class filter to organize students by their respective classes.</p>
+                                </div>
+                            </div>
+                            <div class="tour-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Attendance Tracking</h4>
+                                    <p>Mark daily attendance for students. Set your start date and total school days to track attendance progress accurately.</p>
+                                </div>
+                            </div>
+                            <div class="tour-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Academic Records</h4>
+                                    <p>Manage assignment marks and term test scores. Use the editable tables to input grades directly and see automatic calculations.</p>
+                                </div>
+                            </div>
+                            <div class="tour-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Reports & Analytics</h4>
+                                    <p>Generate comprehensive reports for attendance, academic performance, and overall student progress with filtering options.</p>
+                                </div>
+                            </div>
+                            <div class="tour-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>Auto-Save Feature</h4>
+                                    <p>All data is automatically saved to your browser's local storage. The green indicator shows when changes are saved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3><i class="fas fa-info-circle"></i> About</h3>
+                        <div class="about-content">
+                            <div class="system-info">
+                                <h4>Academic Management System</h4>
+                                <p>A comprehensive web-based solution for managing student attendance, academic records, and generating insightful reports for educational institutions.</p>
+                                
+                                <div class="version-info">
+                                    <h5>Version Information</h5>
+                                    <ul>
+                                        <li><strong>Version:</strong> 1.0.0</li>
+                                        <li><strong>Release Date:</strong> August 2025</li>
+                                        <li><strong>Technology:</strong> HTML5, CSS3, JavaScript (ES6+)</li>
+                                        <li><strong>Storage:</strong> Browser LocalStorage</li>
+                                    </ul>
+                                </div>
+                                
+                <div class="developer-info">
+                    <h5>Developer Information</h5>
+                    <p><strong>Developed by:</strong> Sanjaya Rathnayaka</p>
+                    <p><strong>Contact:</strong> rathnayakadp123@gmail.com</p>
+                    <p><strong>Profession:</strong> ICT Teacher, Professional Web Developer</p>
+                </div>                                <div class="features-info">
+                                    <h5>Key Features</h5>
+                                    <ul>
+                                        <li>Student Information Management</li>
+                                        <li>Daily Attendance Tracking</li>
+                                        <li>Assignment & Test Grade Management</li>
+                                        <li>Comprehensive Reporting System</li>
+                                        <li>Real-time Data Persistence</li>
+                                        <li>Responsive Design</li>
+                                        <li>Secure Authentication</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Student</h3>
+                <span class="close" onclick="closeModal('addStudentModal')">&times;</span>
+            </div>
+            <form id="addStudentForm" class="modal-form">
+                <div class="form-group">
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentClass">Class</label>
+                    <input type="text" id="studentClass" name="studentClass" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentContact">Contact Number</label>
+                    <input type="tel" id="studentContact" name="studentContact" placeholder="e.g., +1-234-567-8900">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addStudentModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Student Modal -->
+    <div id="editStudentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Student</h3>
+                <span class="close" onclick="closeModal('editStudentModal')">&times;</span>
+            </div>
+            <form id="editStudentForm" class="modal-form">
+                <input type="hidden" id="editStudentHiddenId" name="editStudentHiddenId">
+                <div class="form-group">
+                    <label for="editStudentName">Student Name</label>
+                    <input type="text" id="editStudentName" name="editStudentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStudentId">Student ID</label>
+                    <input type="text" id="editStudentId" name="editStudentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStudentClass">Class</label>
+                    <input type="text" id="editStudentClass" name="editStudentClass" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStudentContact">Contact Number</label>
+                    <input type="tel" id="editStudentContact" name="editStudentContact" placeholder="e.g., +1-234-567-8900">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editStudentModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Grade Modal -->
+    <div id="addGradeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Grade (Legacy)</h3>
+                <span class="close" onclick="closeModal('addGradeModal')">&times;</span>
+            </div>
+            <form id="addGradeForm" class="modal-form">
+                <div class="form-group">
+                    <label for="gradeStudentSelect">Select Student</label>
+                    <select id="gradeStudentSelect" name="gradeStudentSelect" required>
+                        <option value="">Choose a student...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gradeTypeSelect">Grade Type</label>
+                    <select id="gradeTypeSelect" name="gradeTypeSelect" required>
+                        <option value="">Choose type...</option>
+                        <option value="exam">Exam</option>
+                        <option value="assignment">Assignment</option>
+                        <option value="quiz">Quiz</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gradeTitle">Title</label>
+                    <input type="text" id="gradeTitle" name="gradeTitle" required placeholder="e.g., Math Midterm">
+                </div>
+                <div class="form-group">
+                    <label for="gradeScore">Score</label>
+                    <input type="number" id="gradeScore" name="gradeScore" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="gradeMaxScore">Max Score</label>
+                    <input type="number" id="gradeMaxScore" name="gradeMaxScore" min="1" value="100" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addGradeModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Grade</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
